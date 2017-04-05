@@ -1,0 +1,498 @@
+<html>
+	<head>
+		<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+		<style type="text/css">
+		@import url('https://themes.googleusercontent.com/fonts/css?kit=NrwVuWlvai715zEUI4XN1A');
+		
+		body {
+			background-image: url("images/lotofrds.png");
+			background-size: 100%;
+			background-attachment: fixed;
+			
+			font-family: Comic Sans MS;
+			font-size: 24pt;
+		}
+		
+		h1 {
+			color: rgba(158,217,247);
+			text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+		}
+		
+		.pull-left {
+			float: left;
+		}
+		
+		.pull-right {
+			float: right;
+		}
+		
+		@keyframes spin-left {
+			0% { transform: rotate(-180deg); }
+			100% { transform: rotate(0deg); }
+		}
+		@-moz-keyframes spin-left {
+			0% { -moz-transform: rotate(0deg); }
+			100% { -moz-transform: rotate(-180deg); }
+		}
+		@-webkit-keyframes spin-left {
+			0% {-webkit-transform: rotate(0deg); }
+			100% { -webkit-transform: rotate(-180deg); }
+		}
+		@-o-keyframes spin-left {
+			100% { -o-transform: rotate(0deg); }
+			0% { -o-transform: rotate(-180deg); }
+		}
+		.spin-left {
+			animation: spin-left 1s linear 0s infinite reverse;
+			-moz-animation: 1s linear 0s reverse none infinite spin-left;
+			-webkit-animation: spin-left 1s linear 0s infinite reverse;
+			-0-animation: spin-left 1s linear 0s infinite reverse;
+			-webkit-animation-play-state: paused;
+			-o-animation-play-state: paused;
+			-moz-animation-play-state: paused;
+			animation-play-state: paused;
+		}
+		.spin-left:hover {
+			-webkit-animation-play-state: running;
+			-o-animation-play-state: running;
+			-moz-animation-play-state: running;
+			animation-play-state: running;
+		}
+		.rotate-left {
+			animation: spin-left 1s linear 0s infinite normal;
+			-moz-animation: 1s linear 0s normal none infinite spin-left;
+			-webkit-animation: spin-left 1s linear 0s infinite normal;
+			-0-animation: spin-left 1s linear 0s infinite normal;
+		}
+		
+		@keyframes spin-right {
+			0% { transform: rotate(0deg); }
+			100% { transform: rotate(-180deg); }
+		}
+		@-moz-keyframes spin-right {
+			0% { -moz-transform: rotate(-180deg); }
+			100% { -moz-transform: rotate(0deg); }
+		}
+		@-webkit-keyframes spin-right {
+			0% {-webkit-transform: rotate(-180deg); }
+			100% { -webkit-transform: rotate(0deg); }
+		}
+		@-o-keyframes spin-right {
+			100% { -o-transform: rotate(-180deg); }
+			0% { -o-transform: rotate(0deg); }
+		}
+		.spin-right {
+			animation: spin-right 1s linear 0s infinite reverse;
+			-moz-animation: 1s linear 0s reverse none infinite spin-right;
+			-webkit-animation: spin-right 1s linear 0s infinite reverse;
+			-0-animation: spin-right 1s linear 0s infinite reverse;
+			-webkit-animation-play-state: paused;
+			-o-animation-play-state: paused;
+			-moz-animation-play-state: paused;
+			animation-play-state: paused;
+		}
+		.spin-right:hover {
+			-webkit-animation-play-state: running;
+			-o-animation-play-state: running;
+			-moz-animation-play-state: running;
+			animation-play-state: running;
+		}
+		.rotate-right {
+			animation: spin-right 1s linear 0s infinite normal;
+			-moz-animation: 1s linear 0s normal none infinite spin-right;
+			-webkit-animation: spin-right 1s linear 0s infinite normal;
+			-0-animation: spin-right 1s linear 0s infinite normal;
+		}
+		
+		/* keyframes definition for WebKit browsers */
+		@-webkit-keyframes travel2 {
+			from { }
+			to {
+				left: 100%;
+				margin-left: -50px;
+				-webkit-transform: rotateZ(360deg) rotateY(360deg);
+			}
+		}
+
+		@-webkit-keyframes bounce2 {
+			from { }
+			to {
+				bottom: 100%;
+				margin-bottom: -50px;
+				-webkit-transform: rotateZ(360deg);
+			}
+		}
+
+		/* keyframes definition for other browsers */
+		@keyframes travel2 {
+			from {
+			left: 0;
+			margin-left: 0;
+				-moz-transform: rotate(0) rotateY(0);
+				-ms-transform: rotate(0) rotateY(0);
+				transform: rotate(0) rotateY(0);
+			}
+			to {
+				left: 100%;
+				margin-left: -50px;
+				-moz-transform: rotateZ(360deg) rotateY(360deg);
+				-ms-transform: rotateZ(360deg) rotateY(360deg);
+				transform: rotateZ(360deg) rotateY(360deg);
+			}
+		}
+
+		@keyframes bounce2 {
+			from {
+				bottom: 0;
+				margin-bottom: 0;
+				-moz-transform: rotate(0);
+				-ms-transform: rotate(0);
+				transform: rotate(0);
+			}
+			to {
+				bottom: 100%;
+				margin-bottom: -50px;
+				-moz-transform: rotate(360deg);
+				-ms-transform: rotate(360deg);
+				transform: rotate(360deg);
+			}
+		}
+
+		/* styles for the stage and animated elements */
+		#stage2 {
+			position: relative;
+			margin: 1em 0;
+			width: 544px;
+			height: 320px;
+			box-shadow: inset 0 0 20px #fff;
+			background: url(/images/meadow.jpg) no-repeat;
+			-webkit-perspective: 200px;
+			-moz-perspective: 200px;
+			-ms-perspective: 200px;
+			perspective: 200px;
+		}
+
+		#traveler2 {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+
+			-webkit-animation-name: travel2;
+			-webkit-animation-timing-function: linear;
+			-webkit-animation-iteration-count: infinite;
+			-webkit-animation-direction: alternate;
+			-webkit-animation-duration: 4.8s;
+
+			animation-name: travel2;
+			animation-timing-function: linear;
+			animation-iteration-count: infinite;
+			animation-direction: alternate;
+			animation-duration: 4.8s;
+		}
+
+		#stage2:hover #traveler2 { outline: 1px dashed #666; }
+
+		#bouncer2 {
+			width: 80%;
+			position: absolute;
+
+			-webkit-animation-name: bounce2;
+			-webkit-animation-iteration-count: infinite;
+			-webkit-animation-direction: alternate;
+			-webkit-animation-duration: 4.2s;
+
+			animation-name: bounce2;
+			animation-iteration-count: infinite;
+			animation-direction: alternate;
+			animation-duration: 4.2s;
+		}
+
+		.background_image {
+			width: 10%;
+			position: fixed;
+		}
+		
+		.background_video {
+			width: 30%;
+		}
+		
+		#quotes {
+			color: white;
+		}
+		
+		.single_quote {
+			display: block;
+			
+			background-color: rgba(158,217,247,0.5);
+			
+			-ms-transform: rotate(0deg); /* IE 9 */
+			-webkit-transform: rotate(0deg); /* Chrome, Safari, Opera */
+			transform: rotate(0deg);
+		}
+		
+		.red {
+			color: rgb(238,64,53);
+			
+			-ms-transform: rotate(-1deg); /* IE 9 */
+			-webkit-transform: rotate(-1deg); /* Chrome, Safari, Opera */
+			transform: rotate(-1deg);
+		}
+		
+		.orange {
+			color: rgb(243,119,55);
+			
+			-ms-transform: rotate(-0.1deg); /* IE 9 */
+			-webkit-transform: rotate(-0.1deg); /* Chrome, Safari, Opera */
+			transform: rotate(-0.1deg);
+		}
+		
+		.yellow {
+			color: rgb(249,233,122);
+			
+			-ms-transform: rotate(0.1deg); /* IE 9 */
+			-webkit-transform: rotate(0.1deg); /* Chrome, Safari, Opera */
+			transform: rotate(0.1deg);
+		}
+		
+		.green {
+			color: rgb(122,192,67);
+			
+			-ms-transform: rotate(1deg); /* IE 9 */
+			-webkit-transform: rotate(1deg); /* Chrome, Safari, Opera */
+			transform: rotate(1deg);
+		}
+		</style>
+		<script type="text/javascript" src="https://panzi.github.io/Browser-Ponies/basecfg.js" id="browser-ponies-config"></script><script type="text/javascript" src="https://panzi.github.io/Browser-Ponies/browserponies.js" id="browser-ponies-script"></script><script type="text/javascript">/* <![CDATA[ */ (function (cfg) {BrowserPonies.setBaseUrl(cfg.baseurl);BrowserPonies.loadConfig(BrowserPoniesBaseConfig);BrowserPonies.loadConfig(cfg);})({"baseurl":"https://panzi.github.io/Browser-Ponies/","fadeDuration":500,"volume":1,"fps":60,"speed":5,"audioEnabled":false,"dontSpeak":true,"showFps":false,"showLoadProgress":false,"speakProbability":0,"spawn":{"rainbow dash":20},"autostart":true}); /* ]]> */</script>
+		<script type="text/javascript">
+		// Sleep time expects milliseconds
+		function sleep (time)
+		{
+			return new Promise((resolve) => setTimeout(resolve, time));
+		}
+		
+		change_colors = function()
+		{
+			var elements = document.getElementsByClassName("single_quote");
+			for (var i = 0; i < elements.length; i++)
+			{
+				// Generate classname
+				var random_number = Math.floor(Math.random() * 4) + 1; // Generate random number from 1-4
+				
+				if (random_number == 1)
+				{
+					var class_to_add = "red";
+				}
+				else if (random_number == 2)
+				{
+					var class_to_add = "orange";
+				}
+				else if (random_number == 3)
+				{
+					var class_to_add = "yellow";
+				}
+				else if (random_number == 4)
+				{
+					var class_to_add = "green";
+				}
+				
+				// Replace class name
+				elements[i].className = "single_quote " + class_to_add;
+			}
+			
+			// Do it again after X milliseconds
+			sleep(50).then(() => {
+				change_colors();
+			});
+		}
+		
+		place_background_images = function()
+		{
+			var elements = document.getElementsByClassName("background_image");
+			for (var i = 0; i < elements.length; i++)
+			{
+				var window_height = document.body.clientHeight;
+				var window_width = document.body.clientWidth;
+			
+				// Generate position
+				var margin_top_to_add = Math.floor(Math.random() * window_height);
+				var margin_left_to_add = Math.floor(Math.random() * window_width - 890) + 690;
+				
+				// Set margins
+				elements[i].style.marginTop = margin_top_to_add + 'px';
+				elements[i].style.marginLeft = margin_left_to_add + 'px';
+			}
+			
+			// Do it again after X milliseconds
+			sleep(400).then(() => {
+				place_background_images();
+			});
+		}
+		
+		window.onload = function()
+		{
+			change_colors();
+			place_background_images();
+			
+			// Reload the page after some time
+			sleep(168000).then(() => {
+				location.reload();
+			});
+		}
+		</script>
+	</head>
+	<body class="c136">
+		<h1 class="rotate-left pull-left">Pray for Rainbow Dash</h1>
+		<h1 class="rotate-right pull-left">Pray for Rainbow Dash</h1>
+		<h1 class="rotate-left pull-right">Pray for Rainbow Dash</h1>
+		<h1 class="rotate-right pull-right">Pray for Rainbow Dash</h1>
+		
+		<img class="background_image" src="images/image00.png"></img>
+		<img class="background_image" src="images/image01.gif"></img>
+		<img class="background_image" src="images/image02.gif"></img>
+		<img class="background_image" src="images/image03.gif"></img>
+		<img class="background_image" src="images/image04.gif"></img>
+		<img class="background_image" src="images/image05.gif"></img>
+		<img class="background_image" src="images/image06.gif"></img>
+		<img class="background_image" src="images/image07.png"></img>
+		<img class="background_image" src="images/image08.gif"></img>
+		<img class="background_image" src="images/image09.gif"></img>
+		<img class="background_image" src="images/image10.png"></img>
+		<img class="background_image" src="images/image11.gif"></img>
+		
+		<video class="background_video rotate-left pull-left" src="videos/video00.mp4" autoplay="true" loop="true"></video>
+		<div id="traveler2">
+			<div id="bouncer2">
+				<video class="background_video traveler2 bouncer2" src="videos/video01.mp4" autoplay="true" muted="true"></video>
+			</div>
+		</div>
+		
+		<video class="background_video rotate-right pull-right" src="videos/video00.mp4" autoplay="true" loop="true"></video>
+		
+		<div id="quotes" class="pull-left">
+			<dl class="single_quote"><dd>"<i>The one and only. Why? You've heard of me?</i>"
+			</dd><dd>— To <a href="/wiki/Twilight_Sparkle" title="Twilight Sparkle">Twilight Sparkle</a>, <a href="/wiki/Friendship_is_Magic,_part_1" title="Friendship is Magic, part 1">Friendship is Magic, part 1</a>
+			</dd></dl>
+			<dl class="single_quote"><dd>"<i>Hey. I could clear this sky in ten seconds flat.</i>"
+			</dd><dd>— Friendship is Magic, part 1
+			</dd></dl>
+			<dl class="single_quote"><dd>"<i>And just what </i>are<i> the Elements of Harmony? And how did </i>you<i> know about Nightmare Moon, huh? Are you a spy?!'</i>"
+			</dd><dd>— <a href="/wiki/Friendship_is_Magic,_part_2" title="Friendship is Magic, part 2">Friendship is Magic, part 2</a>
+			</dd></dl>
+			<dl class="single_quote"><dd>"<i>Nopony knows! You know why? Because everypony who's ever come in... has never... come... </i>OUT!'<b>"</b>
+			</dd><dd>— Friendship is Magic, part 2
+			</dd></dl>
+			<dl class="single_quote"><dd>"<i>You... thank you for the offer, I mean. But I'm afraid I have to say no.</i>"
+			</dd><dd>— Friendship is Magic, part 2
+			</dd></dl>
+			<dl class="single_quote"><dd>"<i>See? I'd never leave my friends hanging!</i>"
+			</dd><dd>— To Twilight Sparkle, Friendship is Magic, part 2
+			</dd></dl>
+			<dl class="single_quote"><dd>"<i>Time to take out the adorable trash.</i>"
+			</dd><dd>— <a href="/wiki/Swarm_of_the_Century" title="Swarm of the Century">Swarm of the Century</a>
+			</dd></dl>
+			<dl class="single_quote"><dd>"<i>I hate losing...</i>"
+			</dd><dd>— <a href="/wiki/Fall_Weather_Friends" title="Fall Weather Friends">Fall Weather Friends</a>
+			</dd></dl>
+			<dl class="single_quote"><dd>"<i>You're not an athlete, you're a... well... you're an egghead.</i>"
+			</dd><dd>— Fall Weather Friends
+			</dd></dl>
+			<dl class="single_quote"><dd>"<i>It needs to be about twenty-percent cooler.</i>"
+			</dd><dd>— <a href="/wiki/Suited_For_Success" title="Suited For Success">Suited For Success</a>
+			</dd></dl>
+			<dl class="single_quote"><dd>"<i>LOOOUUUUUDDEEEEEEEERRRR!!!</i>"
+			</dd><dd>— <a href="/wiki/Sonic_Rainboom" title="Sonic Rainboom">Sonic Rainboom</a>
+			</dd></dl>
+			<dl class="single_quote"><dd>"<i>My life is ruined!</i>"
+			</dd><dd>— Sonic Rainboom
+			</dd></dl>
+			<dl class="single_quote"><dd>"<i>Most people thought that the Sonic Rainboom was just an old mare's tail. But that day... The day I discovered racing... I proved that the legends were true. I made the impossible happen!</i>"
+			</dd><dd>— <a href="/wiki/The_Cutie_Mark_Chronicles" title="The Cutie Mark Chronicles">The Cutie Mark Chronicles</a>
+			</dd></dl>
+			<dl class="single_quote"><dd>"<i>I'm... hanging... with the... Wonderbolts!</i>"
+			</dd><dd>— <a href="/wiki/The_Best_Night_Ever" title="The Best Night Ever">The Best Night Ever</a>
+			</dd></dl>
+			<dl class="single_quote"><dd>"<i>Hey, now wait a minute! Just because I don't have a pet now doesn't mean I never want a pet!</i>"
+			</dd><dd>— <a href="/wiki/May_the_Best_Pet_Win!" title="May the Best Pet Win!">May the Best Pet Win!</a>
+			</dd></dl>
+			<dl class="single_quote"><dd>"<i>Danger's my middle name. Rainbow 'Danger' Dash.</i>"
+			</dd><dd>— <a href="/wiki/The_Mysterious_Mare_Do_Well" title="The Mysterious Mare Do Well">The Mysterious Mare Do Well</a>
+			</dd></dl>
+			<dl class="single_quote"><dd>"<i>What about "Super-Ultra-Extreme-'Awesomazing?'"</i>"
+			</dd><dd>— The Mysterious Mare Do Well
+			</dd></dl>
+			<dl class="single_quote"><dd>"<i>Reading's for eggheads like you, Twilight. Heh, no offense, but I am </i>not<i> reading. It's undeniably, unquestionably, uncool.</i>"
+			</dd><dd>— <a href="/wiki/Read_It_and_Weep" title="Read It and Weep">Read It and Weep</a>
+			</dd></dl>
+			<dl class="single_quote"><dd>"<i>I hate to admit it to myself and would </i>really<i> hate to admit it to my friends, but... I love this story! I, I... I love reading! I'm an egghead.</i>"
+			</dd><dd>— Read It and Weep
+			</dd></dl>
+			<dl class="single_quote"><dd>"<i>I-I don't even like cake!</i>"
+			</dd><dd>— <a href="/wiki/MMMystery_on_the_Friendship_Express" title="MMMystery on the Friendship Express">MMMystery on the Friendship Express</a>
+			</dd></dl>
+			<dl class="single_quote"><dd>"<i>BEST. WEDDING. EVER!</i>"
+			</dd><dd>— <a href="/wiki/A_Canterlot_Wedding_-_Part_2" title="A Canterlot Wedding - Part 2">A Canterlot Wedding - Part 2</a>
+			</dd></dl>
+			<dl class="single_quote"><dd>"<i>No offense, but it's not a real campfire story unless somepony's shaky.</i>"
+			</dd><dd>— To <a href="/wiki/Scootaloo" title="Scootaloo">Scootaloo</a>, <a href="/wiki/Sleepless_in_Ponyville" title="Sleepless in Ponyville">Sleepless in Ponyville</a>
+			</dd></dl>
+			<dl class="single_quote"><dd>"<i>No disrespect ma'am, but there's a big difference between pushing yourself as hard as you can, and just being reckless. And if being reckless is what gets rewarded around here, if that's what it means to be a Wonderbolt, then I don't want any part of it.</i>"
+			</dd><dd>— To <a href="/wiki/Spitfire" title="Spitfire">Spitfire</a>, <a href="/wiki/Wonderbolts_Academy" title="Wonderbolts Academy">Wonderbolts Academy</a>
+			</dd></dl>
+			<dl class="single_quote"><dd>"<i>Omigoshomigoshomigoshomigosh!!</i>"
+			</dd><dd>— Multiple episodes
+			</dd></dl>
+			<dl class="single_quote"><dd>"<i>You can't be tied for the most daring pony!</i>"
+			</dd><dd>— <a href="/wiki/Castle_Mane-ia" title="Castle Mane-ia">Castle Mane-ia</a>
+			</dd></dl>
+			<dl class="single_quote"><dd>"<i>But that was me! You're you! And it just doesn't matter if you can fly or not. Your routine was amazing 'cause it represented exactly what makes Ponyville special. You do still know what that is, right?</i>"
+			</dd><dd>— To Scootaloo, <a href="/wiki/Flight_to_the_Finish" title="Flight to the Finish">Flight to the Finish</a>
+			</dd></dl>
+			<dl class="single_quote"><dd>"<i>Think of the cider! Won't somepony please think of the cider?!</i>"
+			</dd><dd>— <a href="/wiki/Bats!" title="Bats!">Bats!</a>
+			</dd></dl>
+			<dl class="single_quote"><dd>"<i>Wow, Applejack. I know your thing is honesty, but </i>come on!'<b>"</b>
+			</dd><dd>— <a href="/wiki/Rarity_Takes_Manehattan" title="Rarity Takes Manehattan">Rarity Takes Manehattan</a>
+			</dd></dl>
+			<dl class="single_quote"><dd>"<i>That pony is a riddle wrapped in a mystery inside an igneous.</i>"
+			</dd><dd>— About <a href="/wiki/Maud_Pie" title="Maud Pie">Maud Pie</a>, <a href="/wiki/Maud_Pie_(episode)" title="Maud Pie (episode)">Maud Pie</a>
+			</dd></dl>
+			<dl class="single_quote"><dd>"<i>[blows raspberry] Beneficial for eggheads!</i>"
+			</dd><dd>— <a href="/wiki/Testing_Testing_1,_2,_3" title="Testing Testing 1, 2, 3">Testing Testing 1, 2, 3</a>
+			</dd></dl>
+			<dl class="single_quote"><dd>"<i>And no matter what your sport is, we gotta give it our best because we all got a genuine shot at Ponyville gold.</i>"
+			</dd><dd>— <a href="/wiki/Equestria_Games" title="Equestria Games">Equestria Games</a>
+			</dd></dl>
+			<dl class="single_quote"><dd>"<i>Ya' done good squirt!</i>"
+			</dd><dd>— To Scootaloo, Equestria Games
+			</dd></dl>
+			<dl class="single_quote"><dd>"<i>Whoa, whoa, whoa! Is she for real?</i>"
+			</dd><dd>— <a href="/wiki/The_Cutie_Map_-_Part_1" title="The Cutie Map - Part 1">The Cutie Map - Part 1</a>
+			</dd></dl>
+			<dl class="single_quote"><dd>"<i>Who said anything about anger?! I didn't say anything about anger! I'm not upset! </i>And I am not angry!<i> <b>Do I look angry?!</b></i>"
+			</dd><dd>— <a href="/wiki/Tanks_for_the_Memories" title="Tanks for the Memories">Tanks for the Memories</a>
+			</dd></dl>
+			<dl class="single_quote"><dd>"<i>Duh! Because I'm a Wonderbolt!</i>"
+			</dd><dd>— <a href="/wiki/Newbie_Dash" title="Newbie Dash">Newbie Dash</a>
+			</dd></dl>
+			<dl class="single_quote"><dd>"<i>What would she do without us? Huh. Lemme think. [imitating Rarity] "Darlings, I'm absolutely doomed, doomed, doomed!" [laughs, normal] I sound just like her!</i>"
+			</dd><dd>— <a href="/wiki/The_Saddle_Row_Review" title="The Saddle Row Review">The Saddle Row Review</a>
+			</dd></dl>
+			<dl class="single_quote"><dd>"<i>Go, Scootaloo, go! Woo-woo-woo-woo! Uhh, I mean... [nervous laugh] This is the life.</i>"
+			</dd><dd>— <a href="/wiki/The_Cart_Before_the_Ponies" title="The Cart Before the Ponies">The Cart Before the Ponies</a>
+			</dd></dl>
+			<dl class="single_quote"><dd>"<i>Somepony is really gonna have to catch us up on what we missed.</i>"
+			</dd><dd>— <a href="/wiki/To_Where_and_Back_Again_-_Part_2" title="To Where and Back Again - Part 2">To Where and Back Again - Part 2</a>
+			</dd></dl>
+			<dl class="single_quote"><dd>"<i>Wishing you a happy birthday Hub; from the bottom of my heart!</i>"
+			</dd><dd>— A Hub promo celebrating the channel's first anniversary of being on
+			</dd></dl>
+			<dl class="single_quote"><dd>"<i>It's time to pony up!</i>"
+			</dd><dd>— Hub ad bumpers
+			</dd></dl>
+			<dl class="single_quote"><dd>"<i>Okay, seriously, why does EVERYPONY grab me by the tail?</i>"
+			</dd><dd>— Enterplay <a href="/wiki/Merchandise#Collectible_card_game" title="Merchandise">collectible card game</a> The Crystal Games #118 C card Telekinesis
+			</dd></dl>
+			<dl class="single_quote"><dd>"<i>Wow, we're calling HER in to help? Is the fate of Equestria really worth it?</i>"
+		</div>
+	</body>
+</html>
